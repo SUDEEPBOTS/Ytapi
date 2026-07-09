@@ -5,11 +5,11 @@ WORKDIR /app
 # Install FFmpeg, Node.js, git (needed to clone bgutil provider)
 RUN apt-get update && \
     apt-get install -y ffmpeg curl git && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean
 
-# ── Setup bgutil PO token provider server ──────────────────────────────
+# â”€â”€ Setup bgutil PO token provider server â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 RUN git clone --depth 1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git /opt/bgutil-provider
 WORKDIR /opt/bgutil-provider/server
 RUN npm install && npx tsc
